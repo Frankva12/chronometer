@@ -20,7 +20,7 @@
     border-radius: 14px;
     margin: 0px 6px;
     display: flex;
-    border: 2px solid #e42a2a;
+    border: 2px solid #140101;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -28,5 +28,5 @@
   }
     
   .btn-one{
-      background-color: #e42a2a;
+      background-color: #000000;
   }
