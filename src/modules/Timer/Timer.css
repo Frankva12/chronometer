@@ -1,23 +1,22 @@
 .timer{
-    margin : 5rem 0;
     width: 100%;
     display: flex;
-    height: 80%;
+    height: 40%;
     justify-content: center;
     align-items: center;
 }
 
 .alarm{
-    
     flex-direction: row;
 }
   
 .digits{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 3rem;
+    margin-top: 2em;
+    font-size: 4rem;
     color:  #f5f5f5;
 }
   
 .mili-sec{
-    color:  #2967e3;
+    color:  #080808;
 }

@@ -7,7 +7,8 @@ const StopWatch = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  
+  // const [alarm, setAlarm] = useState(0);
+
   React.useEffect(() => {
     let interval = null;
   
@@ -36,6 +37,7 @@ const StopWatch = () => {
     setIsActive(false);
     setTime(0);
   };
+
   
   return (
     <div className="stop-watch">
