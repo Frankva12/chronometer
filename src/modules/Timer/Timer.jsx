@@ -1,7 +1,7 @@
 import React from "react";
 import "./Timer.css";
   
-export default function Timer(props) {
+const Timer = (props) => {
   return (
     <div className="timer">
       <span className="digits">
@@ -14,5 +14,7 @@ export default function Timer(props) {
         {("0" + ((props.time / 10) % 100)).slice(-2)}
       </span>
     </div>
+    
   );
 }
+export default Timer;

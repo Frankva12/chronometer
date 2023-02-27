@@ -6,6 +6,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.alarm{
+    
+    flex-direction: row;
+}
   
 .digits{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
