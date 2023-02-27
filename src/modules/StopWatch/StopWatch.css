@@ -1,6 +1,6 @@
 .stop-watch{
     height: 80%;
-    width: 40%;
+    width: 80%;
     background-image: linear-gradient(to right, rgb(72, 77, 16) , rgb(46, 97, 173));
     display: flex;
     flex-direction: column;
