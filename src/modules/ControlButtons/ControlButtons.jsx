@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import InputMask from "react-input-mask";
 import "./ControlButtons.css"; // Importa el archivo CSS para estilos
 
 const ControlButtons = ({
@@ -18,10 +17,12 @@ const ControlButtons = ({
 
   const handleClick = () => {
     let alarmTime = parseInt(alarmTimeInput);
+    console.log(alarmTime);
     if (isNaN(alarmTime)) {
       alarmTime = 0;
+    } else { 
+      handleSetAlarmTime(alarmTime);
     }
-    handleSetAlarmTime(alarmTime);
   };
 
   return (
@@ -34,9 +35,8 @@ const ControlButtons = ({
       </button>
       <button className="button reset" onClick={handleReset}>Reset</button>
       <div className="alarm-time">
-        <InputMask
-          mask="99:99:99"
-          type="text"
+        <input
+          type="number"
           placeholder="Alarm time (mm:ss:ms)"
           value={alarmTimeInput}
           onChange={handleChange}

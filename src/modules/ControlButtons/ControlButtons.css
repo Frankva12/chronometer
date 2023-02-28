@@ -46,13 +46,13 @@
   margin-top: 1rem;
 }
 
-input[type="text"] {
+input[type="number"] {
   font-size: 1.2rem;
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
 }
 
-input[type="text"]::placeholder {
+input[type="number"]::placeholder {
   color: #6c757d;
 }

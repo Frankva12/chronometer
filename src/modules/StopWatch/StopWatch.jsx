@@ -45,11 +45,10 @@ const StopWatch = () => {
   };
 
   const handleSetAlarmTime = (alarmTime) => {
-    console.log(alarmTime);
     if (alarmTime === 0) {
       alert("Please put some value")
     }else{
-      alert("Set")
+      alert("Alarm is set")
       setAlarmTime(alarmTime);
     }
   };
