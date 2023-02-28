@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ControlButtons.css";
   
 const ControlButtons = (props) => {
+  const [min, setMin] = useState("");
+  const [sec, setSec] = useState("");
+  const [mil, setMil] = useState("");
+
   const StartButton = (
     <button className="btn btn-one btn-start" onClick={props.handleStart} style={{ fontWeight: 'bold' }}>
       Start
@@ -14,39 +18,48 @@ const ControlButtons = (props) => {
     </button>
   )
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (min === "" && sec === "" && mil === "") {
+      alert(`Please indicate the time that you want`);
+    }else{
+      alert(`Alarm set in: \n${min} minutes ${sec} seconds ${mil} miliseconds`);
+      props.handleAlarm([min, sec, mil]);
+    }
+  }
+
   const InputTime = (
-    <div >
-      <form className="text-group">
-        <p className="text-button" style={{ fontWeight: 'bold' }}>Minute
-          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
-        </p>
-        <p className="text-button" style={{ fontWeight: 'bold' }} >Second
-          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='59' />
-        </p>
-        <p className="text-button" style={{ fontWeight: 'bold' }} >Millisecond
-          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
-        </p>
-      </form>
+    <div className="text-group">
+      <p className="text-button" style={{ fontWeight: 'bold' }}>Minute
+        <input type="number" onChange={(e)=>setMin(e.target.value)} className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' name="min" />
+      </p>
+      <p className="text-button" style={{ fontWeight: 'bold' }} >Second
+        <input type="number" onChange={(e)=>setSec(e.target.value)} className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='59' name="sec" />
+      </p>
+      <p className="text-button" style={{ fontWeight: 'bold' }} >Millisecond
+        <input type="number" onChange={(e)=>setMil(e.target.value)} className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' name="milsec" />
+      </p>
     </div>
   );
 
   const ActiveButtons = (
     <div className="btn-grp">
-      <div className="btn btn-two" onClick={props.handleReset}>
+      <button variant="success" className="btn btn-two" style={{ fontWeight: 'bold' }} onClick={props.handleReset}>
         Reset
-      </div>
-      <div className="btn btn-one" onClick={props.handlePauseResume}>
+      </button>
+      <button className="btn btn-one" style={{ fontWeight: 'bold' }}  onClick={props.handlePauseResume}>
         {props.isPaused ? "Resume" : "Pause"}
-      </div>
-      
+      </button>   
     </div>
   );
   
   return (
     <div className="Control-Buttons">
       <div>{props.active ? ActiveButtons : StartButton} </div>
-      <div>{AlarmButton}</div>
-      <div>{InputTime}</div>
+      <form onSubmit={handleSubmit}>
+        <div>{AlarmButton}</div>
+        <div>{InputTime}</div>
+      </form>
     </div>
   );
 }

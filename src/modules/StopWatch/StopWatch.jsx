@@ -7,7 +7,7 @@ const StopWatch = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  // const [alarm, setAlarm] = useState(0);
+  const [alarm, setAlarm] = useState(0);
 
   React.useEffect(() => {
     let interval = null;
@@ -19,6 +19,7 @@ const StopWatch = () => {
     } else {
       clearInterval(interval);
     }
+
     return () => {
       clearInterval(interval);
     };
@@ -38,6 +39,13 @@ const StopWatch = () => {
     setTime(0);
   };
 
+  const handleAlarm = () => {
+    if (alarm != null) {
+      setAlarm(alarm[0], alarm[1], alarm[2]);
+    }
+    console.log(alarm);
+  };
+  
   
   return (
     <div className="stop-watch">
@@ -48,6 +56,7 @@ const StopWatch = () => {
         handleStart={handleStart}
         handlePauseResume={handlePauseResume}
         handleReset={handleReset}
+        handleAlarm={handleAlarm([alarm])}
       />
     </div>
   );
