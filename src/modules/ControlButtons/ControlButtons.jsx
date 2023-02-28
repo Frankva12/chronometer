@@ -48,8 +48,8 @@ const ControlButtons = (props) => {
   return (
     <div className="Control-Buttons">
       <div>{InputTime}</div>
-      <div>{AlarmButton}</div>
       <div>{props.active ? ActiveButtons : StartButton} </div>
+      <div>{AlarmButton}</div>
     </div>
   );
 }
