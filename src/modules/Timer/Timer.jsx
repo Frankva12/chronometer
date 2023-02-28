@@ -14,7 +14,6 @@ const Timer = (props) => {
         {("0" + ((props.time / 10) % 100)).slice(-2)}
       </span>
     </div>
-    
   );
 }
 

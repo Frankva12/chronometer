@@ -11,7 +11,7 @@ const StopWatch = () => {
 
   React.useEffect(() => {
     let interval = null;
-  
+
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
         setTime((time) => time + 10);

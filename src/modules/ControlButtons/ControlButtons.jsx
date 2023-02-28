@@ -3,29 +3,28 @@ import "./ControlButtons.css";
   
 const ControlButtons = (props) => {
   const StartButton = (
-    <div className="btn btn-one btn-start"
-         onClick={props.handleStart} style={{ fontWeight: 'bold' }}>
+    <button className="btn btn-one btn-start" onClick={props.handleStart} style={{ fontWeight: 'bold' }}>
       Start
-    </div>
+    </button>
   );
 
   const AlarmButton = (
-    <div className="btn btn-one btn-alarm" type="submit" style={{ fontWeight: 'bold' }}>
+    <button className="btn btn-one btn-alarm" type="submit" style={{ fontWeight: 'bold' }}>
       Set Alarm
-    </div>
+    </button>
   )
 
   const InputTime = (
     <div >
       <form className="text-group">
         <p className="text-button" style={{ fontWeight: 'bold' }}>Minute
-        <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
+          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
         </p>
         <p className="text-button" style={{ fontWeight: 'bold' }} >Second
-        <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='59' />
+          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='59' />
         </p>
         <p className="text-button" style={{ fontWeight: 'bold' }} >Millisecond
-        <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
+          <input type="number" className="inputTime" style={{ fontWeight: 'bold' }} min='00' max='99' />
         </p>
       </form>
     </div>
@@ -33,12 +32,10 @@ const ControlButtons = (props) => {
 
   const ActiveButtons = (
     <div className="btn-grp">
-      <div className="btn btn-two" 
-           onClick={props.handleReset}>
+      <div className="btn btn-two" onClick={props.handleReset}>
         Reset
       </div>
-      <div className="btn btn-one" 
-           onClick={props.handlePauseResume}>
+      <div className="btn btn-one" onClick={props.handlePauseResume}>
         {props.isPaused ? "Resume" : "Pause"}
       </div>
       
