@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./StopWatch.css";
 import { Timer } from "../Timer";
 import { ControlButtons } from "../ControlButtons";
-  
+
 const StopWatch = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  const [alarm, setAlarm] = useState(0);
+  const [alarmTime, setAlarmTime] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let interval = null;
 
-    if (isActive && isPaused === false) {
+    if (isActive && !isPaused) {
       interval = setInterval(() => {
         setTime((time) => time + 10);
       }, 10);
@@ -20,46 +20,55 @@ const StopWatch = () => {
       clearInterval(interval);
     }
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [isActive, isPaused]);
-  
+
+  useEffect(() => {
+    if (time >= alarmTime && alarmTime !== 0) {
+      alert(`¡Alarma! Se ha alcanzado el tiempo de ${alarmTime} milisegundos.`);
+      setIsActive(false);
+      setTime(0);
+      setIsPaused(true);
+    }
+  }, [time, alarmTime]);
+
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
   };
-  
-  const handlePauseResume = () => {
-    setIsPaused(!isPaused);
-  };
-  
+
+  const handlePauseResume = () => setIsPaused(!isPaused);
+
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
   };
 
-  const handleAlarm = () => {
-    if (alarm != null) {
-      setAlarm(alarm[0], alarm[1], alarm[2]);
+  const handleSetAlarmTime = (alarmTime) => {
+    console.log(alarmTime);
+    if (alarmTime === 0) {
+      alert("Please put some value")
+    }else{
+      alert("Set")
+      setAlarmTime(alarmTime);
     }
-    console.log(alarm);
   };
-  
-  
+
   return (
     <div className="stop-watch">
       <Timer time={time} />
-      <ControlButtons
-        active={isActive}
-        isPaused={isPaused}
-        handleStart={handleStart}
-        handlePauseResume={handlePauseResume}
-        handleReset={handleReset}
-        handleAlarm={handleAlarm([alarm])}
-      />
+      <div className="control-buttons">
+        <ControlButtons
+          active={isActive}
+          isPaused={isPaused}
+          handleStart={handleStart}
+          handlePauseResume={handlePauseResume}
+          handleReset={handleReset}
+          handleSetAlarmTime={handleSetAlarmTime}
+        />
+      </div>
     </div>
   );
-}
-  
+};
+
 export default StopWatch;
