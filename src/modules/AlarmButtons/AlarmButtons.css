@@ -1,0 +1,26 @@
+.alarm-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3.3rem;
+  }
+
+input[type="number"] {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  input[type="number"]::placeholder {
+    color: #6c757d;
+  }
+
+  
+.set-alarm {
+    background-color: #007bff;
+    color: #fff;
+  }

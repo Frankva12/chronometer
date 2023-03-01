@@ -23,36 +23,14 @@
 }
 
 .pause {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.reset {
   background-color: #6c757d;
   color: #fff;
 }
 
-.set-alarm {
-  background-color: #007bff;
+.reset {
+  background-color: #2470b3;
   color: #fff;
 }
 
-.alarm-time {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
 
-input[type="number"] {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
-}
 
-input[type="number"]::placeholder {
-  color: #6c757d;
-}
